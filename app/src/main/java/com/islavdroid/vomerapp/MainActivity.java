@@ -4,21 +4,35 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
+
 
 public class MainActivity extends AppCompatActivity {
     //https://github.com/Clans/FloatingActionButton
   private FloatingActionMenu fab;
     private FloatingActionButton menuFab1,menuFab2,menuFab3;
+    private Drawer navigationDrawerLeft;
+    private AccountHeader headerNavigationLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         TabLayout tab_layout = (TabLayout) findViewById(R.id.tab_layout);
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_chat_bubble_white_24dp));
@@ -31,6 +45,21 @@ public class MainActivity extends AppCompatActivity {
                 (getSupportFragmentManager(), tab_layout.getTabCount());
 
         view_pager.setAdapter(adapter);
+
+        //NAVIGATION DRAWER
+
+
+        headerNavigationLeft = new AccountHeaderBuilder().withActivity(this).withCompactStyle(true).
+                withSavedInstance(savedInstanceState).withHeaderBackground(R.drawable.green).
+                addProfiles(new ProfileDrawerItem().withName("Олег Петров").withEmail("+3000.957.33.77").
+
+                        withIcon(getResources().getDrawable(R.drawable.profile))).build();
+
+        navigationDrawerLeft = new DrawerBuilder().withActivity(this).withToolbar(toolbar).
+                withActionBarDrawerToggleAnimated(true).withDrawerGravity(Gravity.LEFT).withSavedInstance(savedInstanceState).
+                withSelectedItem(0).withAccountHeader(headerNavigationLeft).build();
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Редактировать личные данные").withIcon(R.drawable.ic_create_black_24dp));
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp));
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
