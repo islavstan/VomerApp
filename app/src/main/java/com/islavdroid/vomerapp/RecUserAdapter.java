@@ -15,11 +15,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHolder> {
     private List<Users> eList;
+    int layout ;
     private LayoutInflater layoutInflater;
     private RecyclerViewOnClickListener recyclerViewOnClickListener;
-    public RecUserAdapter(Context c, List<Users>l){
+    public RecUserAdapter(Context c, List<Users>l, int layout){
         eList=l;
         layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.layout=layout;
     }
 
 
@@ -28,7 +30,7 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v =layoutInflater.inflate(R.layout.list_single,viewGroup,false);
+        View v =layoutInflater.inflate(layout,viewGroup,false);
         MyViewHolder viewHolder=new MyViewHolder(v);
         return viewHolder;
     }

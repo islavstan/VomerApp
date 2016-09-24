@@ -33,7 +33,7 @@ public class MyChatsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.fragment_chat, container, false);
         recyclerView = (RecyclerView)v.findViewById(R.id.my_recycler_view);
-        mAdapter = new RecUserAdapter(getActivity(),userList);
+        mAdapter = new RecUserAdapter(getActivity(),userList,R.layout.list_single);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
