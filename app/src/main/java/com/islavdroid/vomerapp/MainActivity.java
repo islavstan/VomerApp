@@ -38,16 +38,15 @@ public class MainActivity extends AppCompatActivity {
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_chat_bubble_white_24dp));
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_forum_white_24dp));
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_person_white_24dp));
-        tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_dehaze_white_24dp));
+        //tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_dehaze_white_24dp));
         final ViewPager view_pager = (ViewPager) findViewById(R.id.pager);
-        view_pager.setOffscreenPageLimit(3);
+        view_pager.setOffscreenPageLimit(2);
         final ViewPagerAdapter adapter = new ViewPagerAdapter
                 (getSupportFragmentManager(), tab_layout.getTabCount());
 
         view_pager.setAdapter(adapter);
 
         //NAVIGATION DRAWER
-
 
         headerNavigationLeft = new AccountHeaderBuilder().withActivity(this).withCompactStyle(true).
                 withSavedInstance(savedInstanceState).withHeaderBackground(R.drawable.green).
