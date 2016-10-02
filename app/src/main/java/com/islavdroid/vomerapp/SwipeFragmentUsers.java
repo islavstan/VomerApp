@@ -12,24 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.fading_entrances.FadeInLeftAnimator;
 import com.daimajia.swipe.util.Attributes;
 
 import java.util.ArrayList;
  public class SwipeFragmentUsers extends Fragment {
 
-    /**
-     * RecyclerView: The new recycler view replaces the list view. Its more modular and therefore we
-     * must implement some of the functionality ourselves and attach it to our recyclerview.
-     * <p/>
-     * 1) Position items on the screen: This is done with LayoutManagers
-     * 2) Animate & Decorate views: This is done with ItemAnimators & ItemDecorators
-     * 3) Handle any touch events apart from scrolling: This is now done in our adapter's ViewHolder
-     */
 
     private ArrayList<Users> userList;
 
 
-    private TextView tvEmptyView;
     private RecyclerView mRecyclerView;
 
     @Override
@@ -41,10 +33,11 @@ import java.util.ArrayList;
 
         // Layout Managers:
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
 
         // Item Decorator:
       //  mRecyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
-        // mRecyclerView.setItemAnimator(new FadeInLeftAnimator());
+      //  mRecyclerView.setItemAnimator(new FadeInLeftAnimator());
 
 
         userList = new ArrayList<Users>();

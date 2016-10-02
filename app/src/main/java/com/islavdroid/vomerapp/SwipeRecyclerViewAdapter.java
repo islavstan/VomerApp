@@ -1,15 +1,20 @@
 package com.islavdroid.vomerapp;
 
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.content.DialogInterface.OnClickListener;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 
@@ -19,9 +24,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecyclerViewAdapter.SimpleViewHolder> {
 
-
+    final int DELETE_DIALOG = 1;
     private Context mContext;
     private ArrayList<Users> eList;
+    AlertDialog.Builder adb;
+    AlertDialog alert;
+    OnClickListener myClickListener;
 
     public SwipeRecyclerViewAdapter(Context context, ArrayList<Users> objects) {
         this.mContext = context;
@@ -134,17 +142,60 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         });*/
 
 
+
         viewHolder.tvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mItemManger.removeShownLayouts(viewHolder.swipeLayout);
+
+
+               DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mItemManger.removeShownLayouts(viewHolder.swipeLayout);
+                                eList.remove(position);
+                                notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, eList.size());
+                                mItemManger.closeAllItems();
+                               // Toast.makeText(mContext, "Deleted " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Контакт удалён", Toast.LENGTH_SHORT).show();
+
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+                builder.setMessage("Вы уверены, что хотите удалить контакт?").setPositiveButton("Да", dialogClickListener)
+                        .setNegativeButton("Отмена", dialogClickListener);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                Button button = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+// Customize the button
+                button.setTextColor(Color.BLACK);
+              //  button.setTypeface(Typeface.DEFAULT_BOLD);
+                Button button2 = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                button2.setTextColor(Color.BLACK);
+
+
+
+
+               /* mItemManger.removeShownLayouts(viewHolder.swipeLayout);
                 eList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, eList.size());
                 mItemManger.closeAllItems();
-                Toast.makeText(view.getContext(), "Deleted " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Deleted " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();*/
             }
         });
+
+
 
 
         // mItemManger is member in RecyclerSwipeAdapter Class
@@ -161,6 +212,9 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     public int getSwipeLayoutResourceId(int position) {
         return R.id.swipe;
     }
+
+
+
 
 
     //  ViewHolder Class
