@@ -4,6 +4,7 @@ package com.islavdroid.vomerapp;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -128,8 +129,10 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         viewHolder.tvInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(mContext,UserInfo.class);
+                mContext.startActivity(intent);
 
-                Toast.makeText(view.getContext(), "Info " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(view.getContext(), "Info " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
