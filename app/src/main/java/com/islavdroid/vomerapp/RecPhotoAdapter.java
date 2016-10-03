@@ -1,6 +1,8 @@
 package com.islavdroid.vomerapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +15,15 @@ import java.util.List;
 public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyViewHolder> {
     private List<Photo> eList;
     int layout ;
+    Context mContext;
     private LayoutInflater layoutInflater;
     private RecyclerViewOnClickListener recyclerViewOnClickListener;
+
     public RecPhotoAdapter(Context c, List<Photo>l, int layout){
         eList=l;
         layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout=layout;
+        mContext =c;
     }
 
 
@@ -59,9 +64,14 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
 
         @Override
         public void onClick(View v) {
-            if(recyclerViewOnClickListener !=null){
-                recyclerViewOnClickListener.OnclickListener(v,getPosition());
-            }
+           // if(recyclerViewOnClickListener !=null){
+               // recyclerViewOnClickListener.OnclickListener(v,getPosition());
+          //  }
+          /*   Intent intent = new Intent(mContext,FullscreenImage.class);
+            Bundle extras = new Bundle();
+            extras.putInt("position",getAdapterPosition());
+            intent.putExtras(extras);
+            mContext.startActivity(intent);*/
         }
     }
 }

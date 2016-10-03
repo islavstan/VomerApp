@@ -1,6 +1,7 @@
 package com.islavdroid.vomerapp;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.islavdroid.vomerapp.gallery.GalleryActivity;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -24,6 +26,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -72,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
                 withActionBarDrawerToggleAnimated(true).withDrawerGravity(Gravity.LEFT).withSavedInstance(savedInstanceState).
                 withSelectedItem(0).withAccountHeader(headerNavigationLeft).build();
         navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Редактировать личные данные").withIcon(R.drawable.ic_create_black_24dp));
+
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Галерея").withIcon(R.drawable.ic_photo_black_24dp).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                Intent intent =new Intent(MainActivity.this, GalleryActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        }));
         navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp));
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;

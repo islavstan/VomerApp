@@ -51,23 +51,23 @@ public class MyChatsFragment extends Fragment {
 
     private void prepareUserData() {
 
-        Users users =new Users("Василий Петров","Привет! Как дела?",R.drawable.vasiliy);
+        Users users =new Users("Василий Петров","Привет! Как дела?",R.drawable.a);
       userList.add(users);
-        users =new Users( "Людмила Кирсовна", "Я буду в 8...", R.drawable.ludmila);
+        users =new Users( "Людмила Кирсовна", "Я буду в 8...", R.drawable.b);
         userList.add(users);
-        users =new Users( "Татьяна Анькова", "Пора спать))", R.drawable.tatiana);
+        users =new Users( "Татьяна Анькова", "Пора спать))", R.drawable.c);
         userList.add(users);
-        users =new Users( "Дмитрий Петров", "Я на работе", R.drawable.dmitriy);
+        users =new Users( "Дмитрий Петров", "Я на работе", R.drawable.d);
         userList.add(users);
-        users =new Users("Юлия Котиковна", "позвони мне в 10", R.drawable.yulia);
+        users =new Users("Юлия Котиковна", "позвони мне в 10", R.drawable.g);
         userList.add(users);
-        users =new Users( "Сергей Ефремов", "Привет))", R.drawable.dmitriy);
+        users =new Users( "Сергей Ефремов", "Привет))", R.drawable.n);
         userList.add(users);
-        users =new Users( "Петя Гальцев", "я на встрече", R.drawable.vasiliy);
+        users =new Users( "Петя Гальцев", "я на встрече", R.drawable.a);
         userList.add(users);
-        users =new Users("Ксюша Андреева", "позвони мне в 10", R.drawable.yulia);
+        users =new Users("Ксюша Андреева", "позвони мне в 10", R.drawable.g);
         userList.add(users);
-         users =new Users("Василий Васильев","давай",R.drawable.vasiliy);
+         users =new Users("Василий Васильев","давай",R.drawable.d);
         userList.add(users);
 
     }
