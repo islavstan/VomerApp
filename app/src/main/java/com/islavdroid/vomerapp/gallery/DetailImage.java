@@ -30,7 +30,8 @@ public class DetailImage extends AppCompatActivity {
         ArrayList<Photo> data = getIntent().getParcelableArrayListExtra("data");
         int position = getIntent().getIntExtra("pos",0);
 
-        ImageView imageView = (ImageView) findViewById(R.id.image);
+       // ImageView imageView = (ImageView) findViewById(R.id.image);
+        TouchImageView imageView=(TouchImageView) findViewById(R.id.image);;
         imageView.setImageResource(data.get(position).getPhoto());
     }
 }
