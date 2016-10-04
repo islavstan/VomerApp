@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserInfo" />
-        <activity android:name=".gallery.GalleryActivity"/>
+        <activity android:name=".gallery.GalleryActivity" />
+        <activity android:name=".gallery.DetailImage"/>
+
+
     </application>
 
 </manifest>

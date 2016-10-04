@@ -26,6 +26,12 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
         mContext =c;
     }
 
+    public RecPhotoAdapter(Context c, List<Photo>l){
+        eList=l;
+        layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mContext =c;
+    }
 
 
 

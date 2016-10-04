@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="yes">Да</string>
+    <string name="add_white">добавить фото</string>
 
     <string-array name="image_ids">
         <item>@drawable/photo1</item>
