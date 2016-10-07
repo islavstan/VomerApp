@@ -127,11 +127,15 @@ if(((CheckBox)view).isChecked()){
       if(item.getItemId()==R.id.delete_photo){
 
           RecPhotoAdapter adapter =(RecPhotoAdapter)mAdapter;
-          adapter.updateAdapter(data);
+          adapter.updateAdapter(selectionPhotoList);
           clearDeleteMode();
       }
+        else if (item.getItemId()==android.R.id.home){
+          clearDeleteMode();
+          mAdapter.notifyDataSetChanged();
+      }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
     public void clearDeleteMode(){
         isActionMode=false;
@@ -142,6 +146,17 @@ if(((CheckBox)view).isChecked()){
         counter_text.setText("0 фото выбрано");
         counter=0;
         selectionPhotoList.clear();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(isActionMode){
+            clearDeleteMode();
+            mAdapter.notifyDataSetChanged();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
 

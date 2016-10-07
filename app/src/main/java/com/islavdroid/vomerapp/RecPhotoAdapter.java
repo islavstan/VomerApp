@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -67,6 +68,7 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
 public void updateAdapter(ArrayList<Photo>photoArrayList){
     for(Photo photo:photoArrayList){
         eList.remove(photo);
+
     }
     notifyDataSetChanged();
 }
