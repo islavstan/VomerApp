@@ -24,13 +24,13 @@ public class FullPhotoDialogFragment extends BlurDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fullphoto_dialog_fragment, null);
 
-
-
-
         photoForDialog = (TouchImageView)v.findViewById(R.id.image);
         // ImageView imageView = (ImageView) findViewById(R.id.image);
 
     photoForDialog.setImageResource(R.drawable.photo1);
+        int width = getResources().getDimensionPixelSize(R.dimen.popup_width);
+        int height = getResources().getDimensionPixelSize(R.dimen.popup_height);
+        getDialog().getWindow().setLayout(width, height);
 
         return v;
     }

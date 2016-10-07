@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,17 +21,22 @@ public class UserInfo extends AppCompatActivity {
     private ImageButton buttonBack;
     private List<Photo> photoList = new ArrayList<>();
     private RecyclerView recyclerView;
+    //нужно создать новый
     private RecPhotoAdapter mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_info);
+        setContentView(R.layout.user_info2);
 //------------------------------recycleview----------------------
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view_photo);
         mAdapter = new RecPhotoAdapter(this,photoList,R.layout.photo_row);
         LinearLayoutManager horizontalLayoutManagaer
-                = new LinearLayoutManager(UserInfo.this, LinearLayoutManager.HORIZONTAL, false);
+               = new LinearLayoutManager(UserInfo.this, LinearLayoutManager.HORIZONTAL, false);
+
         recyclerView.setLayoutManager(horizontalLayoutManagaer);
+
+
+
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
@@ -61,13 +67,13 @@ public class UserInfo extends AppCompatActivity {
                     }}));
 //------------------------------recycleview----------------------
 
-        buttonBack =(ImageButton)findViewById(R.id.back);
+     /*   buttonBack =(ImageButton)findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               finish();
             }
-        });
+        });*/
     }
 
     private void prepareUserData() {

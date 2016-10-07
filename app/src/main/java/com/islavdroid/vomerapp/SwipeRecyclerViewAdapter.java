@@ -31,6 +31,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     AlertDialog.Builder adb;
     AlertDialog alert;
     OnClickListener myClickListener;
+    View viewTitle;
 
     public SwipeRecyclerViewAdapter(Context context, ArrayList<Users> objects) {
         this.mContext = context;
@@ -40,6 +41,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.swipe_list, parent, false);
+
         return new SimpleViewHolder(view);
     }
 
@@ -174,7 +176,11 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                viewTitle = LayoutInflater.from(mContext).inflate(R.layout.title_for_delete_dialog,null);
+                //builder.setTitle("Удалить");
 
+                builder.setCustomTitle(viewTitle);
+               // builder.setIcon(R.drawable.ic_delete_white_24dp);
                 builder.setMessage("Вы уверены, что хотите удалить контакт?").setPositiveButton("Да", dialogClickListener)
                         .setNegativeButton("Отмена", dialogClickListener);
                 AlertDialog dialog = builder.create();

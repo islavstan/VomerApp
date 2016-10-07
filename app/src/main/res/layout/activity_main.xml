@@ -48,7 +48,7 @@
         android:paddingLeft="10dp"
         fab:menu_labels_ellipsize="end"
         fab:menu_labels_singleLine="true"
-        fab:menu_colorNormal="#FFEB3B"
+        fab:menu_colorNormal="#FDC307"
         fab:menu_colorPressed="#FFEB3B"
         fab:menu_colorRipple="#FFEE58"
        >

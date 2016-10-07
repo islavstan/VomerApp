@@ -1,20 +1,21 @@
 package com.islavdroid.vomerapp;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyViewHolder> {
     private List<Photo> eList;
     int layout ;
+    GalleryActivity galleryActivity;
     Context mContext;
     private LayoutInflater layoutInflater;
     private RecyclerViewOnClickListener recyclerViewOnClickListener;
@@ -24,14 +25,11 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
         layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout=layout;
         mContext =c;
+        galleryActivity=(GalleryActivity)c;
+
     }
 
-    public RecPhotoAdapter(Context c, List<Photo>l){
-        eList=l;
-        layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mContext =c;
-    }
 
 
 
@@ -39,7 +37,7 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v =layoutInflater.inflate(layout,viewGroup,false);
-        MyViewHolder viewHolder=new MyViewHolder(v);
+        MyViewHolder viewHolder=new MyViewHolder(v,galleryActivity);
         return viewHolder;
     }
 
@@ -47,6 +45,13 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         holder.image.setImageResource(eList.get(position).getPhoto());
+        if(!galleryActivity.isActionMode){
+         holder.checkbox_delete.setVisibility(View.GONE);
+        }
+        else {
+            holder.checkbox_delete.setVisibility(View.VISIBLE);
+            holder.checkbox_delete.setChecked(false);
+        }
     }
 
     @Override
@@ -58,26 +63,38 @@ public class RecPhotoAdapter  extends RecyclerView.Adapter<RecPhotoAdapter.MyVie
         recyclerViewOnClickListener=r;
     }
 
+// удаление фото
+public void updateAdapter(ArrayList<Photo>photoArrayList){
+    for(Photo photo:photoArrayList){
+        eList.remove(photo);
+    }
+    notifyDataSetChanged();
+}
+
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView image;
-        public MyViewHolder(View itemView) {
+        public CheckBox checkbox_delete;
+        GalleryActivity galleryActivity;
+        public MyViewHolder(View itemView,GalleryActivity galleryActivity) {
             super(itemView);
             image=(ImageView) itemView.findViewById(R.id.photo);
-
-            itemView.setOnClickListener(this);
+            checkbox_delete=(CheckBox)itemView.findViewById(R.id.checkbox_delete) ;
+            //RelativeLayout content_layout=(RelativeLayout)itemView.findViewById(R.id.content_layout);
+           // content_layout.setOnLongClickListener(galleryActivity);
+          // image.setOnLongClickListener(galleryActivity);
+            //itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(galleryActivity);
+            checkbox_delete.setOnClickListener(this);
+            this.galleryActivity=galleryActivity;
         }
 
         @Override
         public void onClick(View v) {
-           // if(recyclerViewOnClickListener !=null){
-               // recyclerViewOnClickListener.OnclickListener(v,getPosition());
-          //  }
-          /*   Intent intent = new Intent(mContext,FullscreenImage.class);
-            Bundle extras = new Bundle();
-            extras.putInt("position",getAdapterPosition());
-            intent.putExtras(extras);
-            mContext.startActivity(intent);*/
+           galleryActivity.prepareSelection(v,getAdapterPosition());
+
+
         }
     }
 }
