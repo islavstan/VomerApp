@@ -22,14 +22,14 @@ public class UserInfo extends AppCompatActivity {
     private List<Photo> photoList = new ArrayList<>();
     private RecyclerView recyclerView;
     //нужно создать новый
-    private RecPhotoAdapter mAdapter;
+    private RecyclerViewForUserInfo mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info2);
 //------------------------------recycleview----------------------
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view_photo);
-        mAdapter = new RecPhotoAdapter(this,photoList,R.layout.photo_row);
+        mAdapter = new RecyclerViewForUserInfo(this,photoList,R.layout.photo_row);
         LinearLayoutManager horizontalLayoutManagaer
                = new LinearLayoutManager(UserInfo.this, LinearLayoutManager.HORIZONTAL, false);
 

@@ -50,10 +50,29 @@ public class GalleryActivity extends AppCompatActivity implements View.OnLongCli
                     @Override
                     public void onItemClick(View view, int position) {
                         if(!isActionMode){
+
+
+
+/*
+                            Bundle bundle = new Bundle();
+                            bundle.putParcelableArrayList("data", data);
+                            bundle.putInt("pos", position);
+                            ImageBrowseFragment imageBrowseFragment =new ImageBrowseFragment();
+                            imageBrowseFragment.setArguments(bundle);*/
+                            //******************************************
                         Intent intent = new Intent(GalleryActivity.this, DetailImage.class);
                         intent.putParcelableArrayListExtra("data", data);
                         intent.putExtra("pos", position);
-                        startActivity(intent);}
+                        startActivity(intent);
+                         //   overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+
+                        //************************************************
+                        }
+
+
+
+
                         else {}
                         //overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
                     }
