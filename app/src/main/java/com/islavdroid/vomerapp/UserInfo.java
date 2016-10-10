@@ -1,6 +1,7 @@
 package com.islavdroid.vomerapp;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.islavdroid.vomerapp.gallery.DetailImage;
 import com.islavdroid.vomerapp.gallery.RecyclerItemClickListener;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.List;
 
 public class UserInfo extends AppCompatActivity {
     private ImageButton buttonBack;
-    private List<Photo> photoList = new ArrayList<>();
+    private ArrayList<Photo> photoList = new ArrayList<>();
     private RecyclerView recyclerView;
     //нужно создать новый
     private RecyclerViewForUserInfo mAdapter;
@@ -30,10 +32,11 @@ public class UserInfo extends AppCompatActivity {
 //------------------------------recycleview----------------------
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view_photo);
         mAdapter = new RecyclerViewForUserInfo(this,photoList,R.layout.photo_row);
-        LinearLayoutManager horizontalLayoutManagaer
+       /* LinearLayoutManager horizontalLayoutManagaer
                = new LinearLayoutManager(UserInfo.this, LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerView.setLayoutManager(horizontalLayoutManagaer);
+        recyclerView.setLayoutManager(horizontalLayoutManagaer);*/
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
 
 
@@ -48,18 +51,13 @@ public class UserInfo extends AppCompatActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        FragmentManager fm = getFragmentManager();
+
+                        Intent intent = new Intent(UserInfo.this, DetailImage.class);
+                        intent.putParcelableArrayListExtra("data", photoList);
+                        intent.putExtra("pos", position);
+                        startActivity(intent);
 
 
-
-
-
-                        FullPhotoDialogFragment testDialog = new FullPhotoDialogFragment();
-
-
-                        // FullPhotoDialogFragment.photoForDialog.setImageResource(photoList.get(position).getPhoto());
-                        testDialog.setRetainInstance(true);
-                        testDialog.show(fm, "fragment_name");
 
 
 

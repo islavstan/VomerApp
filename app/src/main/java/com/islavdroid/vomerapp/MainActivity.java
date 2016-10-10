@@ -65,9 +65,16 @@ public class MainActivity extends AppCompatActivity {
         navigationDrawerLeft = new DrawerBuilder().withActivity(this).withToolbar(toolbar).
                 withActionBarDrawerToggleAnimated(true).withDrawerGravity(Gravity.LEFT).withSavedInstance(savedInstanceState).
                 withSelectedItem(0).withAccountHeader(headerNavigationLeft).build();
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Редактировать личные данные").withIcon(R.drawable.ic_create_black_24dp));
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Редактировать личные данные").withIcon(R.drawable.ic_create_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                Intent intent=new Intent(MainActivity.this,PersInformActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        }));
 
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Галерея").withIcon(R.drawable.ic_photo_black_24dp).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Галерея").withIcon(R.drawable.ic_photo_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                 Intent intent =new Intent(MainActivity.this, GalleryActivity.class);
@@ -75,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }));
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp));
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp).withSelectable(false));
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {

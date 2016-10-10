@@ -18,6 +18,8 @@
         <activity android:name=".UserInfo" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".gallery.DetailImage"/>
+        <activity android:name=".PersInformActivity"/>
+
 
 
     </application>
