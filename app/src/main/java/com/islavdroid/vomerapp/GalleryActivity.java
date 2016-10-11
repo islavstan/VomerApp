@@ -38,6 +38,7 @@ public class GalleryActivity extends AppCompatActivity implements View.OnLongCli
         counter_text.setVisibility(View.GONE);
          toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerView.setHasFixedSize(true); // Helps improve performance

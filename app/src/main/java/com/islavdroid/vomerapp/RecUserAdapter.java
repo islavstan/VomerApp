@@ -2,12 +2,15 @@ package com.islavdroid.vomerapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.islavdroid.vomerapp.chat.MainChatActivity;
 
 import java.util.List;
 
@@ -16,12 +19,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHolder> {
     private List<Users> eList;
     int layout ;
+    Context c;
     private LayoutInflater layoutInflater;
     private RecyclerViewOnClickListener recyclerViewOnClickListener;
     public RecUserAdapter(Context c, List<Users>l, int layout){
         eList=l;
         layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout=layout;
+        this.c=c;
     }
 
 
@@ -64,9 +69,10 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
 
         @Override
         public void onClick(View v) {
-            if(recyclerViewOnClickListener !=null){
-                recyclerViewOnClickListener.OnclickListener(v,getPosition());
+            /*if(recyclerViewOnClickListener !=null){
+                recyclerViewOnClickListener.OnclickListener(v,getPosition());*/
+                Intent intent=new Intent(c, MainChatActivity.class);
+                c.startActivity(intent);
             }
         }
     }
-}

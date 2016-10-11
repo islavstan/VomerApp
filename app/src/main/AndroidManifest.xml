@@ -16,11 +16,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserInfo" />
-        <activity android:name=".GalleryActivity" />
+        <activity android:name=".GalleryActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
         <activity android:name=".gallery.DetailImage"/>
-        <activity android:name=".PersInformActivity"/>
-
-
+        <activity android:name=".PersInformActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".chat.MainChatActivity"/>
 
     </application>
 

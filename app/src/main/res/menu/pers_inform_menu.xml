@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/change_photo"
+        android:icon="@drawable/ic_photo_camera_white_24dp"
+        android:orderInCategory="100"
+        android:title="@string/add_white"
+        app:showAsAction="always" />
+
+</menu>

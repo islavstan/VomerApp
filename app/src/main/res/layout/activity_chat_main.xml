@@ -1,0 +1,194 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/all_display"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/user_name"
+
+                android:layout_width="wrap_content"
+
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+
+                android:layout_height="wrap_content"
+                android:text="Людмила"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_status"
+                android:text="была в сети сегодня в 10:00 утра"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:textSize="12sp"
+                android:layout_below="@+id/user_name"
+                />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/list_msg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transcriptMode="alwaysScroll"
+
+        android:layout_above="@+id/text_print"
+        android:padding="0dip"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:stackFromBottom="true"
+
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_favorite_black_24dp"
+        android:background="@null"
+
+        android:id="@+id/favorite"
+        android:tint="#F44336"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_print"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="1dp"
+android:padding="5dp"
+        android:textColor="#FFFFFF"
+        android:alpha="0.3"
+        android:textSize="12sp"
+        android:background="@drawable/buble_write"
+        android:layout_above="@+id/divider"
+        android:text="Сергей печатает..."/>
+
+    <RelativeLayout
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#fffafafa"
+
+        android:layout_above="@+id/relSendMessage" />
+
+
+    <RelativeLayout
+        android:id="@+id/relSendMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:background="@android:color/white"
+        android:paddingLeft="10dp"
+
+        android:layout_alignParentBottom="true"
+        >
+
+
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_add_black_24dp"
+            android:tint="@color/colorPrimary"
+            android:background="@null"/>
+        <ImageButton
+            android:id="@+id/btn_sticker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/btn_add"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_tag_faces_black_24dp"
+            android:tint="@color/colorPrimary"
+            android:background="@null"/>
+
+        <EditText
+            android:layout_marginBottom="-4dp"
+            android:id="@+id/msg_type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Введите сообщение"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignTop="@+id/btn_chat_send"
+            android:background="@android:color/white"
+            android:layout_alignBottom="@+id/btn_chat_send"
+            android:layout_toLeftOf="@+id/btn_chat_send"
+            android:layout_toRightOf="@id/btn_sticker"/>
+
+        <ImageButton
+            android:id="@+id/btn_chat_send"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_send_black_24dp"
+            android:tint="@color/colorPrimary"
+            android:background="@null"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sticker_layout"
+        android:background="#FAFAFA"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+
+        android:layout_alignParentBottom="true"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sticker_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/add_layout"
+        android:background="#FAFAFA"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+
+        android:layout_alignParentBottom="true"
+        >
+        <include
+
+            layout="@layout/additional_layout" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+
+            android:layout_margin="4dp"
+            android:src="@drawable/a"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/bubble"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@drawable/left_bubble_select"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/user_image">
+
+            <TextView
+                android:id="@+id/txt_msg"
+                android:padding="4dp"
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:text="Привет)"/>
+            <TextView
+                android:layout_below="@+id/txt_msg"
+                android:id="@+id/date"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="28.09.16  13:12"
+                android:textColor="#BDBDBD"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

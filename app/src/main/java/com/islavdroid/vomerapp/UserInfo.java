@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -23,12 +24,17 @@ public class UserInfo extends AppCompatActivity {
     private ImageButton buttonBack;
     private ArrayList<Photo> photoList = new ArrayList<>();
     private RecyclerView recyclerView;
-    //нужно создать новый
+
     private RecyclerViewForUserInfo mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info2);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 //------------------------------recycleview----------------------
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view_photo);
         mAdapter = new RecyclerViewForUserInfo(this,photoList,R.layout.photo_row);
