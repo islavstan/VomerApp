@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.islavdroid.vomerapp"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'fr.tvbarthel.blurdialogfragment:lib:2.2.0'
     compile 'junit:junit:4.12'
+    compile 'com.github.markushi:circlebutton:1.1'
+    compile 'pl.bclogic:pulsator4droid:1.0.3'
+    compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
     compile 'com.bm.photoview:library:1.4.1'
     testCompile 'junit:junit:4.12'
 }

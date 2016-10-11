@@ -93,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
         });
         menuFab1 =(FloatingActionButton)findViewById(R.id.fab1);
         menuFab2 =(FloatingActionButton)findViewById(R.id.fab2);
+        menuFab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,PhoneActivity.class);
+                startActivity(intent);
+            }
+        });
         menuFab3 =(FloatingActionButton)findViewById(R.id.fab3);
         menuFab1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:id="@+id/user_info"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/a"
+            android:scaleType="centerCrop"/>
+
+
+
+        <RelativeLayout
+
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#171717"
+                android:alpha="0.7"/>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_marginTop="70dp"
+            android:id="@+id/user_profile_name"
+            android:textColor="@color/colorForCallLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+
+           android:layout_alignParentLeft="true"
+            android:layout_above="@+id/user_profile_short_bio"
+            android:text="Василий Петров"
+
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/user_profile_short_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+
+            android:text="Входящий вызов"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/colorForCallLayout"
+            android:textSize="18sp" />
+                </RelativeLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </RelativeLayout>
+
+
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/user_info"
+        android:background="#171717">
+
+
+        <pl.bclogic.pulsator4droid.library.PulsatorLayout
+
+            android:layout_centerVertical="true"
+            android:id="@+id/pulsator2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:pulse_count="6"
+            app:pulse_duration="5000"
+            app:pulse_repeat="0"
+            app:pulse_color="#F44336"
+            app:pulse_startFromScratch="false"
+            app:pulse_interpolator="Linear">
+
+        <at.markushi.ui.CircleButton
+
+
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+
+            android:id="@+id/button_call_off"
+            app:cb_color="#F44336"
+            android:src="@drawable/ic_call_end_white_24dp"
+           />
+        </pl.bclogic.pulsator4droid.library.PulsatorLayout>
+
+        <pl.bclogic.pulsator4droid.library.PulsatorLayout
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/pulsator"
+            android:layout_alignParentLeft="true"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:pulse_count="6"
+            app:pulse_duration="5000"
+            app:pulse_repeat="0"
+            app:pulse_color="@color/colorPrimary"
+            app:pulse_startFromScratch="false"
+            app:pulse_interpolator="Linear">
+
+        <at.markushi.ui.CircleButton
+
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/button_answer"
+            app:cb_color="@color/colorPrimary"
+            android:src="@drawable/ic_call_white_24dp"
+
+           />
+        </pl.bclogic.pulsator4droid.library.PulsatorLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
