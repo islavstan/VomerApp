@@ -1,5 +1,4 @@
-package com.islavdroid.vomerapp;
-
+package com.islavdroid.vomerapp.chat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,22 +6,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.islavdroid.vomerapp.chat.MainChatActivity;
+import com.islavdroid.vomerapp.*;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHolder> {
+
+
+public class RecGroupChatAdapter extends RecyclerView.Adapter<RecGroupChatAdapter.MyViewHolder> {
     private List<Users> eList;
     int layout ;
     Context c;
     private LayoutInflater layoutInflater;
-    private RecyclerViewOnClickListener recyclerViewOnClickListener;
-    public RecUserAdapter(Context c, List<Users>l, int layout){
+    private com.islavdroid.vomerapp.RecyclerViewOnClickListener recyclerViewOnClickListener;
+    public RecGroupChatAdapter(Context c, List<Users>l, int layout){
         eList=l;
         layoutInflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout=layout;
@@ -34,16 +35,16 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
 
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecGroupChatAdapter.MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v =layoutInflater.inflate(layout,viewGroup,false);
-        MyViewHolder viewHolder=new MyViewHolder(v);
+        RecGroupChatAdapter.MyViewHolder viewHolder=new RecGroupChatAdapter.MyViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(RecGroupChatAdapter.MyViewHolder holder, int position) {
         holder.name.setText(eList.get(position).getName());
-        holder.description.setText(eList.get(position).getMessage());
+        holder.user_number.setText(eList.get(position).getMessage());
         holder.image.setImageResource(eList.get(position).getPhoto());
     }
 
@@ -53,18 +54,20 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
     }
 
 
-    public void setRecyclerViewOnClickListener(RecyclerViewOnClickListener r){
+    public void setRecyclerViewOnClickListener(com.islavdroid.vomerapp.RecyclerViewOnClickListener r){
         recyclerViewOnClickListener=r;
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public CircleImageView image;
         public TextView name;
-        public TextView description;
+        public TextView user_number;
+        public CheckBox checkbox;
         public MyViewHolder(View itemView) {
             super(itemView);
             image=(CircleImageView)itemView.findViewById(R.id.user_image);
             name=(TextView)itemView.findViewById(R.id.user_name);
-            description=(TextView)itemView.findViewById(R.id.user_message);
+            user_number=(TextView)itemView.findViewById(R.id.user_number);
+            checkbox=(CheckBox)itemView.findViewById(R.id.checkbox);
             itemView.setOnClickListener(this);
         }
 
@@ -72,8 +75,8 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
         public void onClick(View v) {
             /*if(recyclerViewOnClickListener !=null){
                 recyclerViewOnClickListener.OnclickListener(v,getPosition());*/
-                Intent intent=new Intent(c, MainChatActivity.class);
-                c.startActivity(intent);
-            }
+
         }
     }
+}
+

@@ -35,9 +35,14 @@ public class GalleryActivity extends AppCompatActivity implements View.OnLongCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery);
         counter_text=(TextView)findViewById(R.id.counter_text) ;
-        counter_text.setVisibility(View.GONE);
+       // counter_text.setVisibility(View.GONE);
+        counter_text.setText("Галерея");
          toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setTitle("Галерея");
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
@@ -110,6 +115,9 @@ public class GalleryActivity extends AppCompatActivity implements View.OnLongCli
           isActionMode=true;
         mAdapter.notifyDataSetChanged();
         counter_text.setVisibility(View.VISIBLE);
+
+        counter_text.setText("0 фото выбрано");
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
@@ -161,9 +169,13 @@ if(((CheckBox)view).isChecked()){
         isActionMode=false;
         toolbar.getMenu().clear();
         toolbar.inflateMenu(R.menu.menu_for_gallery);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        counter_text.setVisibility(View.GONE);
-        counter_text.setText("0 фото выбрано");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //counter_text.setVisibility(View.GONE);
+        counter_text.setText("Галерея");
+        //setTitle("Галерея");
+       // counter_text.setText("0 фото выбрано");
         counter=0;
         selectionPhotoList.clear();
     }

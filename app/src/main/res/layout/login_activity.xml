@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     >
+
 
     <ImageView
         android:layout_width="220dp"
@@ -23,6 +26,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
         android:padding="15dp"
+        android:theme="@style/MyEditTextTheme"
         android:hint="Введите номер"
         android:drawablePadding="5dp"
         android:layout_gravity="center_horizontal" />
@@ -33,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/input"
+        android:theme="@style/MyEditTextTheme"
         android:inputType="textPassword"
 
         android:ems="10"
@@ -51,4 +56,6 @@
         android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
         />
+
+
 </LinearLayout>

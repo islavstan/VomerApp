@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
     >
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -28,42 +28,29 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/user_message"
+            android:id="@+id/user_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="message"
+            android:text="+3000.567.876"
             android:textSize="15sp"
             android:textStyle="italic"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-<ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-    android:tint="@color/colorPrimary"
-    android:background="?selectableItemBackgroundBorderless"
-
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="25dp"
-        android:src="@drawable/ic_phone_white_24dp"/>
-
-        <ImageButton
+        android:layout_gravity="center_vertical"
+      >
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tint="@color/colorPrimary"
             android:layout_marginRight="20dp"
-            android:background="?selectableItemBackgroundBorderless"
+            android:id="@+id/checkbox"
+            android:buttonTint="@color/colorPrimary"
+            />
 
-            android:layout_marginTop="25dp"
-            android:src="@drawable/ic_videocam_white_24dp"/>
-
-    </LinearLayout>
-
+    </RelativeLayout>
 
 </LinearLayout>

@@ -29,7 +29,7 @@
             android:id="@+id/textView" />
     </RelativeLayout>
     <EditText
-
+        android:theme="@style/MyEditTextTheme"
         android:layout_marginTop="20dp"
         android:id="@+id/name_edittext"
         android:layout_width="fill_parent"

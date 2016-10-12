@@ -228,7 +228,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
     //  ViewHolder Class
 
-    public static class SimpleViewHolder extends RecyclerView.ViewHolder {
+    public static class SimpleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         SwipeLayout swipeLayout;
         public CircleImageView image;
         public TextView name;
@@ -245,9 +245,16 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
             description=(TextView)itemView.findViewById(R.id.user_message);
             tvDelete = (ImageButton) itemView.findViewById(R.id.tvDel);
             tvInfo = (ImageButton) itemView.findViewById(R.id.tvInfo);
-
+            itemView.setOnClickListener(this);
 
 
         }
+        @Override
+        public void onClick(View v) {
+          // Toast.makeText(v.getContext(),"нажали",Toast.LENGTH_SHORT).show();
+
+        }
+
     }
+
 }

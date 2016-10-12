@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.islavdroid.vomerapp.chat.GroupChatActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -82,7 +83,14 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }));
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp).withSelectable(false));
+        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName("Настройки").withIcon(R.drawable.ic_settings_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        }));
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
@@ -92,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         menuFab1 =(FloatingActionButton)findViewById(R.id.fab1);
+
         menuFab2 =(FloatingActionButton)findViewById(R.id.fab2);
         menuFab2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +110,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         menuFab3 =(FloatingActionButton)findViewById(R.id.fab3);
+        menuFab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         menuFab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"кнопка нажата",Toast.LENGTH_SHORT).show();
+                Intent intent =new Intent(MainActivity.this, GroupChatActivity.class);
+                startActivity(intent);
             }
         });
 
