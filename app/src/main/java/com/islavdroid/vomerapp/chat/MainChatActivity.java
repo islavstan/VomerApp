@@ -73,6 +73,7 @@ public class MainChatActivity extends AppCompatActivity {
     TextView textPrint;
     Dialog translateDialog;
     ImageView favorite;
+    ImageButton back_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +81,18 @@ public class MainChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setHomeButtonEnabled(false);
 
         user_status=(TextView) findViewById(R.id.user_status);
         user_status.setSelected(true);
-
+        back_button=(ImageButton)findViewById(R.id.back_button);
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
            favorite =(ImageView)findViewById(R.id.favorite);
         favorite.setVisibility(View.GONE);
         favorite.setOnClickListener(new View.OnClickListener() {
@@ -111,10 +119,11 @@ public class MainChatActivity extends AppCompatActivity {
 
 
         navigationDrawerRight = new DrawerBuilder().withActivity(this).withTranslucentStatusBar(false)
-                .withActionBarDrawerToggle(false).withToolbar(toolbar).
-                        withActionBarDrawerToggleAnimated(true).withDrawerGravity(Gravity.RIGHT).withSavedInstance(savedInstanceState)
+                .withToolbar(toolbar).
+                       withDrawerGravity(Gravity.RIGHT).withSavedInstance(savedInstanceState)
                 .withSelectedItem(-1).build();
 
+        navigationDrawerRight.getActionBarDrawerToggle().setDrawerIndicatorEnabled(false);
 
 
 
@@ -124,7 +133,7 @@ public class MainChatActivity extends AppCompatActivity {
 
 
 
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Сменить фон").withIcon(R.drawable.ic_wallpaper_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Сменить фон").withIcon(R.drawable.wallpaper).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
            @Override
            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
           // Toast.makeText(MainChatActivity.this,"iririr",Toast.LENGTH_SHORT).show();
@@ -139,17 +148,17 @@ public class MainChatActivity extends AppCompatActivity {
                return false;
            }
        }));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Информация о контакте").withIcon(R.drawable.ic_account_circle_black_24dp).withSelectable(false));
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Информация о контакте").withIcon(R.drawable.account).withSelectable(false));
 
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Переименовать контакт").withIcon(R.drawable.ic_create_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Переименовать контакт").withIcon(R.drawable.edit).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
            @Override
            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                renameContact();
                return true;
            }
        }));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Галерея").withIcon(R.drawable.ic_insert_photo_black_24dp).withSelectable(false));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Язык сообщений").withIcon(R.drawable.ic_translate_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Галерея").withIcon(R.drawable.ic_insert_photo_white_24px).withSelectable(false));
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Язык сообщений").withIcon(R.drawable.translate).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
            @Override
            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                navigationDrawerRight.closeDrawer();
@@ -180,7 +189,7 @@ public class MainChatActivity extends AppCompatActivity {
 
 
         navigationDrawerRight.addItem( new DividerDrawerItem());
-        navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Доверительный чат").withIcon(R.drawable.ic_favorite_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+        navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Доверительный чат").withIcon(R.drawable.favorite).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                 favorite.setVisibility(View.VISIBLE);
@@ -190,15 +199,15 @@ public class MainChatActivity extends AppCompatActivity {
 
             }
         }));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Защитить контакт паролем").withIcon(R.drawable.ic_lock_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Защитить контакт паролем").withIcon(R.drawable.lock).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
            @Override
            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                showPasswordDialog();
                return true;
            }
        }));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Скрыть контакт").withIcon(R.drawable.ic_visibility_off_black_24dp).withSelectable(false));
-       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Удалить чат").withIcon(R.drawable.ic_delete_black_24dp).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Скрыть контакт").withIcon(R.drawable.ic_vv).withSelectable(false));
+       navigationDrawerRight.addItem(new PrimaryDrawerItem().withName("Удалить чат").withIcon(R.drawable.delete).withSelectable(false).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
            @Override
            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                deleteChat();
@@ -459,6 +468,9 @@ stickersLayout=(RelativeLayout)findViewById(R.id.relSendMessage) ;
         button2.setTextColor(Color.BLACK);
 
     }
+
+
+
 
     //показать диалог для ввода пароля для контакта
     protected void renameContact() {

@@ -18,14 +18,21 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         <RelativeLayout
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/back_button"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_white_24dp"
+                android:background="?attr/selectableItemBackground"/>
 
             <TextView
                 android:id="@+id/user_name"
-
+android:layout_toRightOf="@+id/back_button"
                 android:layout_width="wrap_content"
-
+android:layout_marginLeft="15dp"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
 
@@ -38,7 +45,9 @@
                 android:id="@+id/user_status"
                 android:text="была в сети сегодня в 10:00 утра"
                 android:singleLine="true"
+                android:layout_marginLeft="15dp"
                 android:ellipsize="marquee"
+                android:layout_toRightOf="@+id/back_button"
                 android:marqueeRepeatLimit ="marquee_forever"
                 android:focusable="true"
                 android:focusableInTouchMode="true"

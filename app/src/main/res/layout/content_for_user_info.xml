@@ -213,15 +213,15 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
 
-            android:layout_marginBottom="4dp"
+
             android:layout_marginTop="4dp"
             android:background="#B6B6B6" />
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_marginBottom="3dp"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="4dp"
 
 
             android:id="@+id/recycler_view_photo">

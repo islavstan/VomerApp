@@ -8,6 +8,7 @@
                 android:title="Личные данные" />
             <item
                 android:id="@+id/galery"
+
                 android:background="?attr/selectableItemBackground"
                 android:icon="@drawable/ic_photo_black_24dp"
                 android:title="Галерея" />
