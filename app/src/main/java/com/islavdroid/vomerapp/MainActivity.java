@@ -2,15 +2,21 @@ package com.islavdroid.vomerapp;
 
 import android.app.SearchManager;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,19 +32,19 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
     //https://github.com/Clans/FloatingActionButton
   private FloatingActionMenu fab;
     private FloatingActionButton menuFab1,menuFab2,menuFab3;
-    private Drawer navigationDrawerLeft;
-    private AccountHeader headerNavigationLeft;
+   // private Drawer navigationDrawerLeft;
+   // private AccountHeader headerNavigationLeft;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,9 +61,19 @@ public class MainActivity extends AppCompatActivity {
 
         view_pager.setAdapter(adapter);
 
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         //NAVIGATION DRAWER
 
-        headerNavigationLeft = new AccountHeaderBuilder().withActivity(this).withCompactStyle(true).
+       /* headerNavigationLeft = new AccountHeaderBuilder().withActivity(this).withCompactStyle(true).
                 withSavedInstance(savedInstanceState).withHeaderBackground(R.drawable.green).
                 addProfiles(new ProfileDrawerItem().withName("Олег Петров").withEmail("+3000.957.33.77").
 
@@ -90,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-        }));
+        }));*/
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
@@ -109,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        menuFab3 =(FloatingActionButton)findViewById(R.id.fab3);
+      /*  menuFab3 =(FloatingActionButton)findViewById(R.id.fab3);
         menuFab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
         menuFab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,5 +163,40 @@ public class MainActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         return true;
     }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.redact_pers_info) {
+            Intent intent=new Intent(MainActivity.this,PersInformActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.galery) {
+            Intent intent =new Intent(MainActivity.this, GalleryActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.setting) {
+            Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+            startActivity(intent);
+
+        }
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+}
 

@@ -24,7 +24,7 @@ public class UserInfo extends AppCompatActivity {
     private ImageButton buttonBack;
     private ArrayList<Photo> photoList = new ArrayList<>();
     private RecyclerView recyclerView;
-
+    String yourTitle ="+3000.3329333";
     private RecyclerViewForUserInfo mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +32,10 @@ public class UserInfo extends AppCompatActivity {
         setContentView(R.layout.user_info2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setTitle(yourTitle);
 //------------------------------recycleview----------------------
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view_photo);
         mAdapter = new RecyclerViewForUserInfo(this,photoList,R.layout.photo_row);

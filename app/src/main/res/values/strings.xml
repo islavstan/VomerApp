@@ -6,6 +6,8 @@
     <string name="yes">Да</string>
     <string name="add_white">добавить фото</string>
     <string name="delete_white">удалить фото</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string-array name="image_ids">
         <item>@drawable/photo1</item>

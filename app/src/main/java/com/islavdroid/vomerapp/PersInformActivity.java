@@ -2,15 +2,18 @@ package com.islavdroid.vomerapp;
 
 import java.util.Calendar;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
@@ -22,6 +25,8 @@ import android.widget.ViewSwitcher;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+
 
 
 public class PersInformActivity extends AppCompatActivity{
@@ -36,6 +41,8 @@ public class PersInformActivity extends AppCompatActivity{
     private FloatingActionButton fab;
     private static final int GALLERY_REQUEST=1;
     private ImageView image;
+    String yourTitle ="+3000.3329333";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +62,67 @@ public class PersInformActivity extends AppCompatActivity{
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+       android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setTitle(yourTitle);
+
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+     /*   AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
+                android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+                boolean toolbarCollapsed = Math.abs(offset) >= appBarLayout.getTotalScrollRange();
+                actionBar.setTitle(toolbarCollapsed ? yourTitle : "");
+                actionBar.setSubtitle(toolbarCollapsed ? yourSubTitle : "");
+            }
+        });
+*/
+      /*  ControllableAppBarLayout appBarLayout = (ControllableAppBarLayout) findViewById(R.id.app_bar);
+        appBarLayout.setOnStateChangeListener(new ControllableAppBarLayout.OnStateChangeListener() {
+
+            @Override
+            public void onStateChange(ControllableAppBarLayout.State toolbarChange) {
+                switch (toolbarChange) {
+
+                    case COLLAPSED: {
+                       // Log.i(TAG, "COLLAPSED2");
+
+                            getSupportActionBar().setTitle(yourTitle);
+                            getSupportActionBar().setSubtitle(yourSubTitle);
+
+                        break;
+                    }
+                    case EXPANDED:
+                       // Log.i(TAG, "EXPANDED");
+                        getSupportActionBar().setTitle(yourTitle);
+                        getSupportActionBar().setSubtitle("");
+                        break;
+
+                    case IDLE: // Just fired once between switching states
+                       // Log.i(TAG, "IDLE");
+                        getSupportActionBar().setTitle(yourTitle);
+                        getSupportActionBar().setSubtitle("");
+                        break;
+                }
+            }
+        });
+
+
+*/
+
+
+
+
+
+
+
+
+
+
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         birthday=(TextView)findViewById(R.id.birthday) ;
