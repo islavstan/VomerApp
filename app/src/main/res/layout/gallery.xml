@@ -28,6 +28,8 @@
         </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
+        android:layout_margin="5dp"
+
         android:layout_below="@+id/toolbar"
         android:id="@+id/list"
         android:layout_width="match_parent"
