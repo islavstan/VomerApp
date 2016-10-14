@@ -9,7 +9,7 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 
 public class LoadPageActivity extends AppCompatActivity {
-
+//страница загрузки
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

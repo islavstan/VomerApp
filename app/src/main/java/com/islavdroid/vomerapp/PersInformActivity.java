@@ -5,24 +5,30 @@ import java.util.Calendar;
 import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.islavdroid.vomerapp.chat.MainChatActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -31,7 +37,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class PersInformActivity extends AppCompatActivity{
 
-    ImageButton edit_birthday;
+    ImageButton edit_birthday,edit_name,edit_phone,edit_email,edit_location;
     private int year;
     private int month;
     private Uri mImageUri=null;
@@ -125,6 +131,36 @@ public class PersInformActivity extends AppCompatActivity{
 
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        edit_email=(ImageButton)findViewById(R.id.edit_email);
+        edit_location =(ImageButton)findViewById(R.id.edit_location);
+        edit_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeAddress();
+            }
+        });
+        edit_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeEmail();
+            }
+        });
+        edit_name=(ImageButton)findViewById(R.id.edit_name);
+        edit_phone=(ImageButton)findViewById(R.id.edit_phone);
+        edit_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changePhone();
+            }
+        });
+        edit_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rename();
+            }
+        });
+
+
         birthday=(TextView)findViewById(R.id.birthday) ;
 edit_birthday=(ImageButton)findViewById(R.id.edit_birthday);
         edit_birthday.setOnClickListener(new View.OnClickListener() {
@@ -160,4 +196,157 @@ edit_birthday=(ImageButton)findViewById(R.id.edit_birthday);
             }
         }
     }
+
+
+    //показать диалог для переименования
+    protected void rename() {
+
+
+        LayoutInflater layoutInflater = LayoutInflater.from(PersInformActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.dialog_for_rename_pers_info, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PersInformActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        final EditText editText = (EditText) promptView.findViewById(R.id.name_edittext);
+        // setup a dialog window
+        alertDialogBuilder
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  resultText.setText("Hello, " + editText.getText());
+                    }
+                })
+                .setNegativeButton("Отмена",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+
+        AlertDialog alert = alertDialogBuilder.create();
+
+// Customize the button
+
+        alert.show();
+        Button button = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        button.setTextColor(Color.BLACK);
+        //  button.setTypeface(Typeface.DEFAULT_BOLD);
+        Button button2 = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        button2.setTextColor(Color.BLACK);
+
+    }
+    //показать диалог для смены номера
+    protected void changePhone() {
+
+
+        LayoutInflater layoutInflater = LayoutInflater.from(PersInformActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.dialog_for_rename_number_pers_info, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PersInformActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        final EditText editText = (EditText) promptView.findViewById(R.id.phone_edittext);
+        // setup a dialog window
+        alertDialogBuilder
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  resultText.setText("Hello, " + editText.getText());
+                    }
+                })
+                .setNegativeButton("Отмена",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+
+        AlertDialog alert = alertDialogBuilder.create();
+
+// Customize the button
+
+        alert.show();
+        Button button = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        button.setTextColor(Color.BLACK);
+        //  button.setTypeface(Typeface.DEFAULT_BOLD);
+        Button button2 = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        button2.setTextColor(Color.BLACK);
+
+    }
+
+    //показать диалог смены мыла
+    protected void changeEmail() {
+
+
+        LayoutInflater layoutInflater = LayoutInflater.from(PersInformActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.dialog_for_change_email_pers_info, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PersInformActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        final EditText editText = (EditText) promptView.findViewById(R.id.email_edittext);
+        // setup a dialog window
+        alertDialogBuilder
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  resultText.setText("Hello, " + editText.getText());
+                    }
+                })
+                .setNegativeButton("Отмена",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+
+        AlertDialog alert = alertDialogBuilder.create();
+
+// Customize the button
+
+        alert.show();
+        Button button = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        button.setTextColor(Color.BLACK);
+        //  button.setTypeface(Typeface.DEFAULT_BOLD);
+        Button button2 = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        button2.setTextColor(Color.BLACK);
+
+    }
+
+    //показать диалог смены адреса
+    protected void changeAddress() {
+
+
+        LayoutInflater layoutInflater = LayoutInflater.from(PersInformActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.dialog_for_change_address, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PersInformActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        //final EditText editText = (EditText) promptView.findViewById(R.id.email_edittext);
+        // setup a dialog window
+        alertDialogBuilder
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  resultText.setText("Hello, " + editText.getText());
+                    }
+                })
+                .setNegativeButton("Отмена",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+
+        AlertDialog alert = alertDialogBuilder.create();
+
+// Customize the button
+
+        alert.show();
+        Button button = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        button.setTextColor(Color.BLACK);
+        //  button.setTypeface(Typeface.DEFAULT_BOLD);
+        Button button2 = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        button2.setTextColor(Color.BLACK);
+
+    }
+
 }

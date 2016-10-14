@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image"
+            android:tint="#FFFFFF"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_create_black_24dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Смена PIN"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/textView" />
+    </RelativeLayout>
+    <EditText
+        android:theme="@style/MyEditTextTheme"
+        android:layout_marginTop="20dp"
+        android:inputType="numberPassword"
+        android:id="@+id/pin1"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:hint="Текущий PIN"
+
+        android:padding="10dp" />
+    <EditText
+        android:theme="@style/MyEditTextTheme"
+        android:layout_marginTop="20dp"
+        android:inputType="numberPassword"
+        android:id="@+id/pin2"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:hint="Новый PIN"
+        android:padding="10dp" />
+    <EditText
+        android:theme="@style/MyEditTextTheme"
+        android:layout_marginTop="20dp"
+        android:id="@+id/pin3"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:hint="Повторить PIN"
+        android:inputType="numberPassword"
+        android:padding="10dp" />
+
+</LinearLayout>

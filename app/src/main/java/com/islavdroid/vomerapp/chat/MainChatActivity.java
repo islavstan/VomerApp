@@ -472,7 +472,7 @@ stickersLayout=(RelativeLayout)findViewById(R.id.relSendMessage) ;
 
 
 
-    //показать диалог для ввода пароля для контакта
+    //показать диалог для переименования
     protected void renameContact() {
 
         // get prompts.xml view
