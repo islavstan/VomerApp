@@ -34,7 +34,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 
 
-
+//ЛИЧНАЯ ИНФОРМАЦИЯ
 public class PersInformActivity extends AppCompatActivity{
 
     ImageButton edit_birthday,edit_name,edit_phone,edit_email,edit_location;

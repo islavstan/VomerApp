@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="7dp"
+        android:src="@drawable/businessm"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="name"
+            android:maxLines="1"
+            android:textColor="#616161"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/user_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="number"
+            android:textSize="15sp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+       android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+
+
+       >
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="пригласить"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+
+
+
+
+        />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

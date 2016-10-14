@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Calendar;
-
+//ДИАЛОГ ДЛЯ СМЕНЫ ДАТЫ РОЖДЕНИЯ
 public class DatePicker extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 

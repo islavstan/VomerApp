@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.islavdroid.vomerapp.chat.GroupChatActivity;
+import com.islavdroid.vomerapp.invite_friends.ContactListActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -191,7 +192,9 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
             Intent intent=new Intent(MainActivity.this,SettingActivity.class);
             startActivity(intent);
 
-        }
+        }else if (id == R.id.invite_friend) {
+            Intent intent=new Intent(MainActivity.this,ContactListActivity.class);
+            startActivity(intent);}
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

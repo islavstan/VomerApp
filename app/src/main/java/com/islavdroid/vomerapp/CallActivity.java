@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+//ОКНО ЗВОНКА ЧЕЛОВЕКУ
 public class CallActivity extends AppCompatActivity {
     ImageButton camera,dialpad,add,speaker,pause,mute;
     boolean cambol,dialbol,addbol,speakerbol,pausebol,mutebol;

@@ -8,7 +8,7 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 
-
+//ОКНО ОТВЕТА НА ЗВОНОК
 public class AnswerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

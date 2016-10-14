@@ -21,7 +21,7 @@ import com.islavdroid.vomerapp.gallery.DetailImage;
 import com.islavdroid.vomerapp.gallery.RecyclerItemClickListener;
 
 import java.util.ArrayList;
-
+//ГАЛЕРЕЯ
 public class GalleryActivity extends AppCompatActivity implements View.OnLongClickListener {
        boolean isActionMode =false;
     TextView counter_text ;

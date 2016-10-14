@@ -19,7 +19,7 @@ import com.islavdroid.vomerapp.gallery.RecyclerItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//ДЕТАЛЬНАЯ ИНФА О КОНТАКТЕ
 public class UserInfo extends AppCompatActivity {
     private ImageButton buttonBack;
     private ArrayList<Photo> photoList = new ArrayList<>();

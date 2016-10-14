@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-
+//НАСТРОЙКИ
 public class SettingActivity extends AppCompatActivity {
     private Toolbar toolbar;
     RelativeLayout change_pin;
