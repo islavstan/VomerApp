@@ -17,6 +17,10 @@ public class LoadPageActivity extends AppCompatActivity {
         setContentView(R.layout.load_page);
         ShimmerFrameLayout container =
                 (ShimmerFrameLayout) findViewById(R.id.shimmer_view_container);
+        container.setDuration(4000);//задаём скорость
+       // container.setAngle(ShimmerFrameLayout.MaskAngle.CW_270);//задаём угол направления анимации
+        container.setIntensity(0.6f);//яркость подсветки
         container.startShimmerAnimation();
+
 
 }}

@@ -12,12 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.daimajia.swipe.util.Attributes;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.islavdroid.vomerapp.chat.MainChatActivity;
+import com.miguelcatalan.materialsearchview.utils.AnimationUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +31,7 @@ public class MyChatsFragment extends Fragment {
     private List<Users> userList = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecUserAdapter mAdapter;
-
+private FloatingActionMenu fab;
 
 
 
@@ -42,6 +46,25 @@ public class MyChatsFragment extends Fragment {
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
         recyclerView.setAdapter(mAdapter);
 
+
+        fab=(FloatingActionMenu)getActivity().findViewById(R.id.menu_fab );
+       fab.setMenuButtonShowAnimation(AnimationUtils.loadAnimation(getActivity(),R.anim.fab_scale_up));
+        fab.setMenuButtonHideAnimation(AnimationUtils.loadAnimation(getActivity(),R.anim.fab_scale_down));
+        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy>0){
+                    fab.hideMenuButton(true);
+                }
+                else fab.showMenuButton(true);
+            }
+        });
         prepareUserData();
 
 

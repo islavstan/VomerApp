@@ -35,7 +35,6 @@ android:layout_toRightOf="@+id/back_button"
 android:layout_marginLeft="15dp"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
-
                 android:layout_height="wrap_content"
                 android:text="Людмила"/>
 
@@ -64,7 +63,7 @@ android:layout_marginLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:transcriptMode="alwaysScroll"
-
+android:layout_below="@+id/toolbar"
         android:layout_above="@+id/text_print"
         android:padding="0dip"
         android:divider="@null"

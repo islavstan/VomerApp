@@ -5,10 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import at.markushi.ui.CircleButton;
 
@@ -30,12 +36,26 @@ public class PhoneActivity extends AppCompatActivity implements View.OnClickList
     private static final String SYMBOL_STAR = "*";
     private static final String SYMBOL_POUND = "#";
     private  Vibrator vibe;
-    private CircleButton button_call;
+    private CircleButton button_call,button_back;
+    private List<Users> userList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private RecUserAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table_phone);
+
+        recyclerView = (RecyclerView)findViewById(R.id.find_contacts);
+        mAdapter = new RecUserAdapter(this,userList,R.layout.find_contacts_item);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
+        recyclerView.setAdapter(mAdapter);
+
+        prepareUserData();
          vibe = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE) ;
         button1 =(Button)findViewById(R.id.button_1);
         button1.setOnClickListener(this);
@@ -64,7 +84,13 @@ public class PhoneActivity extends AppCompatActivity implements View.OnClickList
         buttonDel=(ImageButton) findViewById(R.id.button_del);
         buttonDel.setOnClickListener(this);
         textViewDisplay=(TextView) findViewById(R.id.text_view_display);
-
+        button_back=(CircleButton)findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         button_call=(CircleButton)findViewById(R.id.button_call);
         button_call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,4 +179,26 @@ public class PhoneActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-}}
+}
+    private void prepareUserData() {
+
+        Users users =new Users("Василий Петров","+3000.3333333",R.drawable.a);
+        userList.add(users);
+        users =new Users( "Людмила Кирсовна", "+3000.0000001", R.drawable.b);
+        userList.add(users);
+        users =new Users( "Татьяна Анькова", "+3000.92548484", R.drawable.c);
+        userList.add(users);
+        users =new Users( "Дмитрий Петров", "+3000.405599", R.drawable.d);
+        userList.add(users);
+        users =new Users("Юлия Котиковна", "+3000.9696878", R.drawable.g);
+        userList.add(users);
+        users =new Users( "Сергей Ефремов", "+3000.4040507", R.drawable.n);
+        userList.add(users);
+
+
+    }
+
+
+
+
+}

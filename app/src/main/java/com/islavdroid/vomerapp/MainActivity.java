@@ -62,6 +62,26 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
 
         view_pager.setAdapter(adapter);
 
+view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        switch (state){
+            case ViewPager.SCROLL_STATE_IDLE:
+                fab.showMenuButton(true);
+                break;
+    }}
+});
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -110,6 +130,7 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
         }));*/
 
         fab = (FloatingActionMenu)findViewById(R.id.menu_fab) ;
+
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override
             public void onMenuToggle(boolean opened) {

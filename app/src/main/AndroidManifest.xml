@@ -18,26 +18,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserInfo" />
+        <activity android:name=".UserInfo"
+           />
+
         <activity android:name=".GalleryActivity">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
         </activity>
         <activity android:name=".gallery.DetailImage"/>
-        <activity android:name=".PersInformActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-        </activity>
+        <activity android:name=".PersInformActivity"/>
+
         <activity android:name=".chat.MainChatActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".PhoneActivity"/>
         <activity android:name=".CallActivity"/>
         <activity android:name=".AnswerActivity"/>
         <activity android:name=".chat.GroupChatActivity"/>
-        <activity android:name=".SettingActivity"/>
-        <activity android:name=".invite_friends.ContactListActivity"/>
+        <activity android:name=".SettingActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".invite_friends.ContactListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat"/>
     </application>

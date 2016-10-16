@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 
 import android.support.v7.app.AppCompatActivity;
@@ -159,8 +160,10 @@ if(((CheckBox)view).isChecked()){
           clearDeleteMode();
       }
         else if (item.getItemId()==android.R.id.home){
-          clearDeleteMode();
-          mAdapter.notifyDataSetChanged();
+          onBackPressed();
+         // clearDeleteMode();
+         // mAdapter.notifyDataSetChanged();
+
       }
 
         return true;
@@ -186,9 +189,11 @@ if(((CheckBox)view).isChecked()){
             clearDeleteMode();
             mAdapter.notifyDataSetChanged();
         }
-        else {
+        else if(!isActionMode) {
             super.onBackPressed();
         }
     }
+
+
 }
 
