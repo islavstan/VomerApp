@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.islavdroid.vomerapp.chat.MainChatActivity;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
 
@@ -57,7 +58,8 @@ public class RecUserAdapter extends RecyclerView.Adapter<RecUserAdapter.MyViewHo
         recyclerViewOnClickListener=r;
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public CircleImageView image;
+      //  public CircleImageView image;
+       public CircleImageView image;
         public TextView name;
         public TextView description;
         public MyViewHolder(View itemView) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe"
 
     android:layout_width="match_parent"
@@ -51,11 +52,33 @@
         android:layout_height="wrap_content"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_image"
+        <FrameLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="7dp" />
+            android:layout_gravity="center"
+            android:layout_margin="7dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_image"
+                app:civ_border="false"
+                android:layout_width="60dp"
+
+                android:layout_height="60dp"
+
+                android:layout_gravity="bottom|center_horizontal"/>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/iv_camera"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="bottom|right"
+                app:civ_border_width="2dp"
+                android:src="@drawable/green_circle"
+                app:civ_border_color="#FAFAFA"
+                />
+
+
+
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"

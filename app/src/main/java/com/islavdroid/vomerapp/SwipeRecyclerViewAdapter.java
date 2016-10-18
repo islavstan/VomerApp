@@ -18,6 +18,7 @@ import android.widget.Toast;
 import android.content.DialogInterface.OnClickListener;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 
