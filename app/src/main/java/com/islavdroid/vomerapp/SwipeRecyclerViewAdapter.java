@@ -2,10 +2,15 @@ package com.islavdroid.vomerapp;
 
 
 import android.app.Dialog;
+import android.app.DialogFragment;
+
+
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,10 +38,12 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     AlertDialog alert;
     OnClickListener myClickListener;
     View viewTitle;
+    // static FragmentManager fm;
 
     public SwipeRecyclerViewAdapter(Context context, ArrayList<Users> objects) {
         this.mContext = context;
         this.eList = objects;
+
     }
 
     @Override
@@ -138,7 +145,15 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
              //   Toast.makeText(view.getContext(), "Info " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+        viewHolder.tvRadio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,RadioActivity.class);
+                mContext.startActivity(intent);
 
+                //   Toast.makeText(view.getContext(), "Info " + viewHolder.name.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
      /*   viewHolder.tvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,18 +249,32 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         public CircleImageView image;
         public TextView name;
         public TextView description;
-        ImageButton tvDelete;
+        ImageButton tvDelete,tvRadio;
         ImageButton tvInfo;
+
+
 
 
         public SimpleViewHolder(View itemView) {
             super(itemView);
+
             swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
             image=(CircleImageView)itemView.findViewById(R.id.user_image);
             name=(TextView)itemView.findViewById(R.id.user_name);
             description=(TextView)itemView.findViewById(R.id.user_message);
             tvDelete = (ImageButton) itemView.findViewById(R.id.tvDel);
             tvInfo = (ImageButton) itemView.findViewById(R.id.tvInfo);
+            tvRadio = (ImageButton) itemView.findViewById(R.id.tvRadio);
+          /*  rec=(ImageButton)itemView.findViewById(R.id.rec) ;
+            rec.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogFragment dialogFragment =new RecordDialog();
+
+                    dialogFragment.show(fm,"dialogFragment");
+                }
+            });*/
+
             itemView.setOnClickListener(this);
 
 

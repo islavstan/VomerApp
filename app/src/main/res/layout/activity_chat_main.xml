@@ -102,8 +102,8 @@ android:padding="5dp"
     <RelativeLayout
         android:id="@+id/divider"
         android:layout_width="fill_parent"
-        android:layout_height="1dip"
-        android:background="#fffafafa"
+        android:layout_height="4dp"
+        android:background="@drawable/shadow_top"
 
         android:layout_above="@+id/relSendMessage" />
 

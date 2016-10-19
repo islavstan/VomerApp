@@ -2,8 +2,11 @@ package com.islavdroid.vomerapp;
 
 
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,15 +25,21 @@ import java.util.ArrayList;
 
 
     private ArrayList<Users> userList;
-
+//FragmentManager manager;
 
     private RecyclerView mRecyclerView;
      FloatingActionMenu fab;
+   /*  private FragmentActivity fa;
+     @Override
+     public void onAttach(Activity activity) {
+         fa=(FragmentActivity) activity;
+         super.onAttach(activity);
+     }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.recycler_for_swipe, container, false);
-
+    // manager=fa.getFragmentManager();
     //    tvEmptyView = (TextView)v. findViewById(R.id.empty_view);
         mRecyclerView = (RecyclerView)v. findViewById(R.id.my_recycler_view);
 

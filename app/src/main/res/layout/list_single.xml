@@ -16,18 +16,29 @@
             android:id="@+id/user_image"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:src="@drawable/a"
 
             android:layout_gravity="bottom|center_horizontal"/>
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/iv_camera"
+            android:id="@+id/iv_online"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="bottom|right"
             app:civ_border_width="2dp"
             android:src="@drawable/green_circle"
             app:civ_border_color="#FAFAFA"
+            android:visibility="gone"
             />
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="bottom|right"
 
+            android:src="@drawable/ic_smartphone_black_24px"
+
+
+            />
 
 
 </FrameLayout>
