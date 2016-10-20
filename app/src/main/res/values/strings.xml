@@ -8,7 +8,7 @@
     <string name="delete_white">удалить фото</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="forgot_password">Забыли пароль? <u>underline</u>.</string>
     <string-array name="image_ids">
         <item>@drawable/photo1</item>
         <item>@drawable/photo2</item>

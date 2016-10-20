@@ -1,25 +1,28 @@
-package com.islavdroid.vomerapp;
+package com.islavdroid.vomerapp.login_page;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.islavdroid.vomerapp.R;
+
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 
-public class RadioActivity extends AppCompatActivity {
+import static com.islavdroid.vomerapp.R.id.toolbar;
+
+public class WebPhoneActivity extends AppCompatActivity {
 Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radio);
+        setContentView(R.layout.activity_web_phone);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Гена Васильев");
-        getSupportActionBar().setSubtitle("+3000.6969975");
+        setTitle("WEB телефон");
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        PulsatorLayout pulsator2 = (PulsatorLayout) findViewById(R.id.pulsator2);
-        pulsator2.start();
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

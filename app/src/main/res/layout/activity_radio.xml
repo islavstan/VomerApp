@@ -20,8 +20,8 @@
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
     android:layout_width="wrap_content"
-    android:layout_below="@+id/btn_rec"
-        android:layout_marginTop="50dp"
+    android:layout_below="@+id/but_lay"
+        android:layout_marginTop="20dp"
     android:layout_centerHorizontal="true"
     android:layout_height="wrap_content">
 
@@ -44,13 +44,36 @@
         android:id="@+id/seekBar" />
 </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/but_lay"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+    <pl.bclogic.pulsator4droid.library.PulsatorLayout
+
+
+        android:id="@+id/pulsator2"
+
+        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:pulse_count="6"
+        app:pulse_duration="5000"
+        app:pulse_repeat="0"
+        app:pulse_color="#FFEB3B"
+        app:pulse_startFromScratch="false"
+        app:pulse_interpolator="Linear"/>
+
     <ImageButton
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/button_rec"
         android:background="@null"
         android:id="@+id/btn_rec"
+        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+
         android:layout_marginTop="132dp" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_web_phone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    tools:context="com.islavdroid.vomerapp.login_page.WebPhoneActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </android.support.v7.widget.Toolbar>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar"
+    android:id="@+id/lay"
+    android:weightSum="4"
+    android:orientation="horizontal">
+    <EditText
+        android:layout_margin="16dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_edittext_icon"
+       android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:theme="@style/MyEditTextTheme"
+        android:id="@+id/edit_number"
+        android:hint="Введите номер"
+
+       />
+    <at.markushi.ui.CircleButton
+        android:layout_gravity="center_vertical"
+android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/button_answer"
+        app:cb_color="@color/colorPrimary"
+        android:src="@drawable/ic_call_white_24dp"
+
+        />
+
+</LinearLayout>
+
+
+    <EditText
+
+        android:layout_below="@+id/lay"
+        android:layout_width="match_parent"
+        android:inputType="textMultiLine"
+        android:layout_margin="16dp"
+        android:scrollbars="vertical"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:hint="Введите сообщение..."
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_edittext_icon"
+        android:theme="@style/MyEditTextTheme"
+        android:layout_above="@+id/wright_button"
+        />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/wright_button"
+        android:background="@drawable/button"
+        android:textColor="#FFFFFF"
+        android:text="отправить сообщение"/>
+
+</RelativeLayout>
